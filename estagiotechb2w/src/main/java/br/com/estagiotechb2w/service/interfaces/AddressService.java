@@ -16,4 +16,7 @@ public interface AddressService {
     Address updateAddress(Long id, AddressDTO addressDTO);
 
     String deleteAddress(Long id);
+
+    // Consumindo third party service
+    AddressDTO consumedAPI(String cep);
 }

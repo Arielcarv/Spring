@@ -12,6 +12,8 @@ import javax.persistence.*;
 @NoArgsConstructor // Construtor Padrão
 @AllArgsConstructor
 @Builder
+
+
 @Entity
 @Table(name="address")
 public class Address {

@@ -1,7 +1,6 @@
 package br.com.estagiotechb2w.controller;
 
 import br.com.estagiotechb2w.dto.AddressDTO;
-import br.com.estagiotechb2w.entity.Address;
 import br.com.estagiotechb2w.service.interfaces.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -9,8 +8,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.data.domain.Pageable;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("api/v1")
@@ -47,5 +44,10 @@ public class AddressController {
     @DeleteMapping("addresses/{id}")
     public ResponseEntity<?> updateAddress(@PathVariable Long id) {
         return ResponseEntity.ok().body(addressService.deleteAddress(id));
+    }
+
+    @GetMapping("addresses/viacep")
+    public ResponseEntity<?> consumedAPI(@RequestParam String cep) {
+        return ResponseEntity.ok().body(addressService.consumedAPI(cep));
     }
 }
